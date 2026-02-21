@@ -1,0 +1,41 @@
+# === 1. 编译器生成的二进制产物 (必删) ===
+Debug/
+Release/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+# === 2. Visual Studio 自动生成的缓存与索引 (最占空间) ===
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.opendb
+*.db
+*.ipch
+*.aps
+
+# === 3. 编译产生的中间文件 ===
+*.obj
+*.pch
+*.pdb
+*.tlog
+*.lastbuildstate
+*.idb
+*.ilk
+*.res
+*.exe
+*.dll
+*.lib
+
+# === 4. 其他常见系统/IDE 文件 ===
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
+
+# 过大文件
+*.hex
