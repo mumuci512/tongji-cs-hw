@@ -1,0 +1,4 @@
+/* 2350222 ÐÅ12 Ê¢êØ */
+#pragma once
+int max(int x, int y);
+
