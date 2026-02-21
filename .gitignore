@@ -60,3 +60,5 @@ mobilenetv2.zip
 作业4history
 stable-diffusion-v1-5/
 dataset.parquet
+cifar-10-batches-py/
+cifar-10-python.tar.gz
