@@ -1,12 +1,11 @@
-# === 1. 编译器生成的二进制产物 (必删) ===
 Debug/
 Release/
 x64/
 x86/
 [Bb]in/
 [Oo]bj/
+__pycache__/
 
-# === 2. Visual Studio 自动生成的缓存与索引 (最占空间) ===
 .vs/
 *.suo
 *.user
@@ -16,8 +15,8 @@ x86/
 *.db
 *.ipch
 *.aps
+*.history
 
-# === 3. 编译产生的中间文件 ===
 *.obj
 *.pch
 *.pdb
@@ -30,7 +29,6 @@ x86/
 *.dll
 *.lib
 
-# === 4. 其他常见系统/IDE 文件 ===
 .idea/
 .vscode/
 *.swp
@@ -39,3 +37,8 @@ Thumbs.db
 
 # 过大文件
 *.hex
+*.csv
+*.pth
+*.npy
+catboost_info/
+*.npz
