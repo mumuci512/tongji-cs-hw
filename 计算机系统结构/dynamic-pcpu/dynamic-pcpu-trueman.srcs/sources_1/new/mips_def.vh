@@ -1,0 +1,94 @@
+// 异常原因码（Cause寄存器的ExcCode字段）
+`define CAUSE_SYSCALL   5'b01000  // 系统调用异常
+`define CAUSE_BREAK     5'b01001  // 断点异常
+`define CAUSE_TEQ       5'b01101  // 陷阱异常
+
+/* I型指令操作码（6位opcode）*/
+
+`define OP_ADDI         6'b001000  // 立即数加法（有符号）
+`define OP_ADDIU        6'b001001  // 立即数加法（无符号）
+`define OP_ANDI         6'b001100  // 立即数与
+`define OP_ORI          6'b001101  // 立即数或
+`define OP_SLTIU        6'b001011  // 小于立即数置位（无符号）
+`define OP_LUI          6'b001111  // 立即数加载到高位
+`define OP_XORI         6'b001110  // 立即数异或
+`define OP_SLTI         6'b001010  // 小于立即数置位（有符号）
+`define OP_ADDU         6'b000000  // R型指令，需要结合funct字段
+`define OP_AND          6'b000000  // R型指令，需要结合funct字段
+`define OP_BEQ          6'b000100  // 相等分支
+`define OP_BNE          6'b000101  // 不相等分支
+`define OP_JR           6'b000000  // R型指令，需要结合funct字段
+`define OP_LW           6'b100011  // 加载字
+`define OP_XOR          6'b000000  // R型指令，需要结合funct字段
+`define OP_NOR          6'b000000  // R型指令，需要结合funct字段
+`define OP_OR           6'b000000  // R型指令，需要结合funct字段
+`define OP_SLL          6'b000000  // R型指令，需要结合funct字段
+`define OP_SLLV         6'b000000  // R型指令，需要结合funct字段
+`define OP_SLTU         6'b000000  // R型指令，需要结合funct字段
+`define OP_SRA          6'b000000  // R型指令，需要结合funct字段
+`define OP_SRL          6'b000000  // R型指令，需要结合funct字段
+`define OP_SUBU         6'b000000  // R型指令，需要结合funct字段
+`define OP_SW           6'b101011  // 存储字
+`define OP_ADD          6'b000000  // R型指令，需要结合funct字段
+`define OP_SUB          6'b000000  // R型指令，需要结合funct字段
+`define OP_SLT          6'b000000  // R型指令，需要结合funct字段
+`define OP_SRLV         6'b000000  // R型指令，需要结合funct字段
+`define OP_SRAV         6'b000000  // R型指令，需要结合funct字段
+`define OP_CLZ          6'b011100  // 前导零计数（特殊操作码）
+`define OP_DIVU         6'b000000  // R型指令，需要结合funct字段
+`define OP_ERET         6'b010000  // 异常返回（特殊操作码）
+`define OP_LHU          6'b100101  // 加载半字（无符号）
+`define OP_SB           6'b101000  // 存储字节
+`define OP_SH           6'b101001  // 存储半字
+`define OP_LH           6'b100001  // 加载半字（有符号）
+`define OP_MFHI         6'b000000  // R型指令，需要结合funct字段
+`define OP_MFLO         6'b000000  // R型指令，需要结合funct字段
+`define OP_MTHI         6'b000000  // R型指令，需要结合funct字段
+`define OP_MTLO         6'b000000  // R型指令，需要结合funct字段
+`define OP_MUL          6'b011100  // 乘法（特殊操作码）
+`define OP_MULTU        6'b000000  // R型指令，需要结合funct字段
+`define OP_SYSCALL      6'b000000  // R型指令，需要结合funct字段
+`define OP_TEQ          6'b000000  // R型指令，需要结合funct字段
+`define OP_BGEZ         6'b000001  // 大于等于零分支（rt=00001）
+`define OP_BREAK        6'b000000  // R型指令，需要结合funct字段
+`define OP_DIV          6'b000000  // R型指令，需要结合funct字段
+`define OP_J            6'b000010  // 跳转
+`define OP_JAL          6'b000011  // 跳转并链接
+`define OP_JALR         6'b000000  // R型指令，需要结合funct字段
+`define OP_LB           6'b100000  // 加载字节（有符号）
+`define OP_LBU          6'b100100  // 加载字节（无符号）
+
+/* R型指令功能码（6位funct字段）*/
+// (所有R型指令的opcode均为6'b000000)
+
+`define FUNC_ADDU       6'b100001  // 无符号加法
+`define FUNC_AND        6'b100100  // 逻辑与
+`define FUNC_JR         6'b001000  // 跳转寄存器
+`define FUNC_XOR        6'b100110  // 逻辑异或
+`define FUNC_NOR        6'b100111  // 逻辑或非
+`define FUNC_OR         6'b100101  // 逻辑或
+`define FUNC_SLL        6'b000000  // 逻辑左移
+`define FUNC_SLLV       6'b000100  // 逻辑左移变址
+`define FUNC_SLTU       6'b101011  // 小于置位（无符号）
+`define FUNC_SRA        6'b000011  // 算术右移
+`define FUNC_SRL        6'b000010  // 逻辑右移
+`define FUNC_SUBU       6'b100011  // 无符号减法
+`define FUNC_ADD        6'b100000  // 有符号加法
+`define FUNC_SUB        6'b100010  // 有符号减法
+`define FUNC_SLT        6'b101010  // 小于置位（有符号）
+`define FUNC_SRLV       6'b000110  // 逻辑右移变址
+`define FUNC_SRAV       6'b000111  // 算术右移变址
+`define FUNC_CLZ        6'b100000  // 前导零计数（特殊funct）
+`define FUNC_DIVU       6'b011011  // 无符号除法
+`define FUNC_ERET       6'b011000  // 异常返回（特殊funct）
+`define FUNC_JALR       6'b001001  // 跳转并链接寄存器
+`define FUNC_MFHI       6'b010000  // 从HI寄存器移动
+`define FUNC_MFLO       6'b010010  // 从LO寄存器移动
+`define FUNC_MTHI       6'b010001  // 移动到HI寄存器
+`define FUNC_MTLO       6'b010011  // 移动到LO寄存器
+`define FUNC_MUL        6'b000010  // 乘法（特殊funct）
+`define FUNC_MULTU      6'b011001  // 无符号乘法
+`define FUNC_SYSCALL    6'b001100  // 系统调用
+`define FUNC_TEQ        6'b110100  // 陷阱相等
+`define FUNC_BREAK      6'b001101  // 断点
+`define FUNC_DIV        6'b011010  // 有符号除法

@@ -45,6 +45,8 @@ Thumbs.db
 *.log
 *jou
 
+*.exe
+
 # 过大文件
 *.hex
 *.csv
