@@ -35,6 +35,16 @@ __pycache__/
 Thumbs.db
 .DS_Store
 
+*.cache
+*.hw
+*.runs
+*.sim
+*.runs
+*.ip_user_files
+*.Xil
+*.log
+*jou
+
 # 过大文件
 *.hex
 *.csv
